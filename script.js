@@ -1,5 +1,5 @@
 // let date = new Date(2024,0,31,0,0,0);
-let date = new Date()
+// let date = new Date()
 // console.log("Current Date and Time: " + date)   ;
 // console.log(date.getFullYear());
 // console.log(date.getMonth()+1);
@@ -40,23 +40,54 @@ let date = new Date()
 
 
 
-let birdthDate = new Date(2002, 0, 31);
-let currentDate = new Date();
+// let birdthDate = new Date(2002, 0, 31);
+// let currentDate = new Date();
 
-let timeDiff = currentDate - birdthDate;
-let daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-let yearsDiff = Math.floor(daysDiff / 365);
-console.log("Days since birth: " + daysDiff);
-console.log("Years since birth: " + yearsDiff);
+// let timeDiff = currentDate - birdthDate;
+// let daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+// let yearsDiff = Math.floor(daysDiff / 365);
+// console.log("Days since birth: " + daysDiff);
+// console.log("Years since birth: " + yearsDiff);
 
-let nextBirthday = new Date(currentDate.getFullYear(), birdthDate.getMonth(), birdthDate.getDate());
-if (currentDate > nextBirthday) {
-    nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+// let nextBirthday = new Date(currentDate.getFullYear(), birdthDate.getMonth(), birdthDate.getDate());
+// if (currentDate > nextBirthday) {
+//     nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+// }
+// let daysUntilBirthday = Math.ceil((nextBirthday - currentDate) / (1000 * 60 * 60 * 24));
+
+// let hoursUntilBirthday = Math.ceil((nextBirthday - currentDate) / (1000 * 60 * 60));
+// console.log("Hours until next birthday: " + hoursUntilBirthday);
+
+// console.log("Days until next birthday: " + daysUntilBirthday);   
+
+
+function countdownToBirthday() {
+  const input = prompt("Ad gününün tarixini daxil et (YYYY-MM-DD):");
+  const birthday = new Date(input);
+
+  const now = new Date();
+
+  birthday.setFullYear(now.getFullYear());
+  if (birthday < now) {
+    birthday.setFullYear(now.getFullYear() + 1);
+  }
+
+  const diff = birthday - now;
+
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  const Hours = hours % 24;
+  const remMinutes = minutes % 60;
+  const remSeconds = seconds % 60;
+
+  console.log(
+    `${days} gün ${remHours} saat ` +
+    `${remMinutes} dəqiqə ${remSeconds} saniyə qalıb`
+  );
 }
-let daysUntilBirthday = Math.ceil((nextBirthday - currentDate) / (1000 * 60 * 60 * 24));
 
-let hoursUntilBirthday = Math.ceil((nextBirthday - currentDate) / (1000 * 60 * 60));
-console.log("Hours until next birthday: " + hoursUntilBirthday);
-
-console.log("Days until next birthday: " + daysUntilBirthday);   
+countdownToBirthday();
 
